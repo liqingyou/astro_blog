@@ -27,5 +27,4 @@ sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
 ```
 
-参考链接:
-1. [Wazuh Docker 部署](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html)
+[^1]: [Wazuh Docker 部署](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html)
