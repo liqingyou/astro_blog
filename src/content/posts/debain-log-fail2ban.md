@@ -82,27 +82,41 @@ bantime  = 600
 
 记得在修改配置后重启 fail2ban 服务以使更改生效。
 
-## 可能错误 iptable 没生效时
+:::note
+可能出现错误 iptable 没有时
+:::
+
 配置 fail2ban 使用 nftables（推荐）：
 
 a. 编辑 /etc/fail2ban/jail.local：
-
+```
 sudo nano /etc/fail2ban/jail.local
+```
+
 b. 将 banaction 设置为 nftables：
-
+```
 banaction = nftables-multiport
+```
 c. 确保你有 nftables 包：
-
+```
 sudo apt install nftables
+```
+
 重启 fail2ban：
 
+```
 sudo systemctl restart fail2ban
+```
 检查 fail2ban 状态：
 
+```
 sudo systemctl status fail2ban
+```
 再次查看日志以确保错误已解决：
 
+```
 sudo tail -f /var/log/fail2ban.log
-使用 nftables 是更现代和推荐的方法，因为它是 Debian 12 的默认防火墙工具。但如果你更熟悉 iptables，也可以选择安装和使用它。
+```
+使用 `nftables` 是更现代和推荐的方法，因为它是 Debian 12 的默认防火墙工具。但如果你更熟悉 iptables，也可以选择安装和使用它。
 
 如果问题仍然存在，可能需要检查 fail2ban 服务的环境变量和权限，确保它能够正确访问和执行所需的命令。
